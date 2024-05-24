@@ -2,6 +2,7 @@ import requests
 import matplotlib.pyplot as plt
 import json
 
+# If you change all rooms, you might want to update line #82 which is the title of the output chart/image
 cookie = "RANDOM_SID"
 
 # Function to fetch free rooms from the API
@@ -12,7 +13,7 @@ def fetch_free_rooms(exclude_windows):
         "difficulty": "all",
         "order": "relevance",
         "roomType": "all",
-        "contentSubType": "free",
+        "contentSubType": "free", # Change to 'all' instead for all rooms.
         "limit": 100
     }
 
