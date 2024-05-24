@@ -33,7 +33,7 @@ This project fetches and visualizes the progress of completed rooms on TryHackMe
 
 1. **Modify the Connect.sid (Cookie)**
 
-    Update the `cookie on line 5` parameter in the thmprogress.py script
+    Update the `cookie on line 5` parameter in the thmprogress.py script (Get your connect.sid cookie from THM)
 
   ```python  
   cookie = "RANDOM_SID"
