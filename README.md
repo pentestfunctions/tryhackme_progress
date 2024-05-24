@@ -3,7 +3,7 @@
 This project fetches and visualizes the progress of completed rooms on TryHackMe for a given user. It uses the TryHackMe API to retrieve the data, processes it, and generates a pie chart showing the overall progress. Additionally, it saves the sorted progress data to a JSON file and the pie chart to an image file.
 
 <p align="center">
-  <img src="./progress_pie_chart.png">
+  <img src="./completion_rate_pie_chart.png">
 </p>
 
 ## Requirements 📋
