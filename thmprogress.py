@@ -75,7 +75,11 @@ completed_rooms = sum(1 for room in progress_data if room['progressPercentage'] 
 in_progress_rooms = sum(1 for room in progress_data if 0 < room['progressPercentage'] < 100)
 not_started_rooms = total_rooms - completed_rooms - in_progress_rooms
 
-labels = ['Completed', 'In Progress', 'Not Started']
+labels = [
+    f'Completed ({completed_rooms})',
+    f'In Progress ({in_progress_rooms})',
+    f'Not Started ({not_started_rooms})'
+]
 sizes = [completed_rooms, in_progress_rooms, not_started_rooms]
 
 # Chart title
@@ -88,9 +92,13 @@ else:
     colors = ['#4caf50', '#ffeb3b', '#f44336']
     explode = (0.1, 0, 0)  # explode the 1st slice (Completed)
 
+    def autopct_format(pct, allvalues):
+        absolute = int(pct / 100. * sum(allvalues))
+        return "{:.1f}%\n({:d})".format(pct, absolute)
+
     # Plot the pie chart
     plt.figure(figsize=(10, 7))
-    plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
+    plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct=lambda pct: autopct_format(pct, sizes),
             shadow=True, startangle=140)
     plt.title(chart_title)
     plt.axis('equal')
